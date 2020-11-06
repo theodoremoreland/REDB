@@ -5,8 +5,6 @@ To address this need, the Saint Louis Regional Data Alliance is building the Reg
 
 REDB is being built entirely in AWS, with an eye on being reproducible by other organizations and municipalities. To that end, all code associated with this project is being made available on Github, in three repositories.
 
-<img src="REDB ELT Workflow.jpg" width="900">
-
 * [REDB-Platform](https://github.com/stlrda/REDB-Platform) contains a Terraform module that builds an Airflow cluster that will run and manage the ETL processes that will create, maintain, and update REDB. Run in isolation, this will create a functioning Airflow cluster and nothing more.
 
 * [REDB-Infrastructure](https://github.com/stlrda/REDB-Infrastructure) builds on the above. It contains Terraform code that pulls in the module above, and adds an S3 bucket (for the Airflow workers to use in their processes) and an Aurora PostGreSQL database (REDB). Run in isolation, this will creating everything an organization needs to start building out their own data workflows.
@@ -17,6 +15,10 @@ REDB is being built entirely in AWS, with an eye on being reproducible by other 
 This repository contains the DAG Files and Scripts used to automate the parcel standardization process. The contents of this repository are meant to be within the infrastructure outlined above.
 
 Automating the processing of data from a wide variety of government sources into a format that can be added to this database involves many steps. These steps can be saved in script files to be run on new data, but the running of these script files is still a complex task. To effectively import the data, these steps must applied to the data periodically and in sequences. Task scheduling services such as cron, which are provided with operating systems, are very limited. Apache Airflow provides a flexible and effective method to automate this workflow of menial data processing tasks.
+
+<img src="REDB ELT Workflow.jpg" width="900">
+
+
 Apache Airflow is a workflow manager based on directed acyclic graphs (DAGs). In plain English, these are structures akin to flow charts which define the tasks that must be performed and specifically map out the path of flow from one task to another within the process. The entire workflow's DAG, though it is also called a 'Pipeline' in Airflow terminology, is defined within a Python script file. You can learn to make this file with Apache's tutorial here:
 
 [https://airflow.apache.org/docs/stable/tutorial.html](https://airflow.apache.org/docs/stable/tutorial.html)
