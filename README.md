@@ -16,7 +16,7 @@ This repository contains the DAG Files and Scripts used to automate the parcel s
 
 Automating the processing of data from a wide variety of government sources into a format that can be added to this database involves many steps. These steps can be saved in script files to be run on new data, but the running of these script files is still a complex task. To effectively import the data, these steps must applied to the data periodically and in sequences. Task scheduling services such as cron, which are provided with operating systems, are very limited. Apache Airflow provides a flexible and effective method to automate this workflow of menial data processing tasks.
 
-<img src="REDB ELT Workflow.jpg" width="900">
+<img src="docs/REDB ELT Workflow.jpg" width="900">
 
 
 Apache Airflow is a workflow manager based on directed acyclic graphs (DAGs). In plain English, these are structures akin to flow charts which define the tasks that must be performed and specifically map out the path of flow from one task to another within the process. The entire workflow's DAG, though it is also called a 'Pipeline' in Airflow terminology, is defined within a Python script file. You can learn to make this file with Apache's tutorial here:
